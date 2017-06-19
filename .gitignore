@@ -8,6 +8,8 @@
 #src
 /src/app/*/*.js
 /src/app/*/*.map
+/src/app/*.js
+/src/app/*.map
 /src/img
 
 # dependencies
