@@ -1,13 +1,13 @@
-import { NgModule }      from '@angular/core';
+import { NgModule } from '@angular/core';
 import { BrowserModule, Title } from '@angular/platform-browser';
 import { RouterModule, Routes } from '@angular/router';
 
-import { PageNotFoundComponent }  from './404.component';
-import { ContactComponent }  from './contact.component';
-import { AppComponent }  from './app.component';
-import { LinesComponent }  from './lines.component';
-import { BeanComponent }  from './bean.component';
-import { KokanComponent }  from './kokan.component';
+import { PageNotFoundComponent } from './404/404.component';
+import { ContactComponent } from './contact/contact.component';
+import { AppComponent } from './app.component';
+import { LinesComponent } from './lines/lines.component';
+import { BeanComponent } from './bean/bean.component';
+import { KokanComponent } from './kokan/kokan.component';
 
 const appRoutes: Routes = [
   { path: '', component: KokanComponent, data: { title: 'Heroes List' } },
