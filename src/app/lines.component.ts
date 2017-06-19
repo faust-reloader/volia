@@ -527,7 +527,8 @@ const lines = [
     <div id="modalLine" class="w3-modal">
       <span class="w3-padding w3-yellow w3-hover-red w3-display-topright" style="cursor:pointer"
             onclick="this.parentNode.style.display='none'">&times;</span>
-      <div class="w3-modal-content w3-animate-zoom">
+      <div class="w3-modal-content w3-animate-zoom" style="overflow:hidden">
+        <div class="w3-left w3-white" style="width:40%" id="lineImg">
         <div class="w3-left w3-white" style="width:40%" id="lineImg">
         </div>
         <div class="w3-right w3-small w3-white" style="width:60%;min-height:400px;">
