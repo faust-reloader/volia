@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { DomSanitizer } from '@angular/platform-browser'
 
 const beanHarvesters = [
   {
@@ -188,7 +189,7 @@ const beanHarvesters = [
       камей и других предметов, чтобы не повредить комбайн, который будет собирать фасоль или арахис`,
     text: `<p>Двухрядная и четырехрядная косилка C200 Peanut Digger  предназначена  для выкапывания растений фасоли и арахиса,
       а так же формирования валков для удобного механизированного сбора продукции. Машина оснащена системой для удаления земли,
-      камей и других предметов из лозы, чтобы не повредить комбайн, который будет собирать фасоль (арахис).</p>`
+      камней и других предметов из лозы, чтобы не повредить комбайн, который будет собирать фасоль (арахис).</p>`
   }
 ];
 
@@ -199,18 +200,22 @@ const beanHarvesters = [
 })
 
 export class BeanComponent {
+  showModal: boolean = false;
   beanHarvesters = beanHarvesters;
+  beanSrc: any = '';
+  beanImages: any = '';
+  beanText: any = '';
   beanRows = Array.from(Array(Math.ceil(beanHarvesters.length / 4)).keys());
-  beansModal (bean: any) {
-    document.getElementById('modalBean').style.display = 'block';
-    document.getElementById('beanImg').innerHTML = '<img id=img1 src="img/bean/' + bean.img + '_1.jpg"' +
-      ' style="width:100%;max-height:400px">';
+  constructor(private sanitizer: DomSanitizer) {}
+  beansModal (bean: any, img: number) {
+    this.showModal = true;
+    this.beanSrc = `img/bean/${bean.img}_${img}.jpg`;
+    this.beanImages = '';
     if (bean.imgNum > 1) {
       for (let i = 1; i <= bean.imgNum; i++) {
-        document.getElementById('beanImg').innerHTML += '<img src="img/bean/' + bean.img + '_' + i + '.jpg"' +
-          ' style="width:33.333%;cursor:pointer" onclick="document.getElementById(\'img1\').src=this.src">';
+        this.beanImages += `<img src="img/bean/${bean.img}_${i}.jpg" class="w3-third" (click)="alert(${i})">`;
       }
     }
-    document.getElementById('beanText').innerHTML = bean.text;
+    this.beanText = this.sanitizer.bypassSecurityTrustHtml(bean.text);
   }
 }
