@@ -6,9 +6,8 @@
       Надежные фасолеуборочные комбайны, косилки для срезания бобовых, мини комбайны для уборки фасоли
       являються ледером отрасли, при этом они легки в обслуживании и эксплуатации</p>
   </div>
-
   <div *ngFor="let i of beanRows" class="w3-row-padding">
-    <div *ngFor="let Bean of beanHarvesters | slice:(i*4):(i+1)*4" (click)="beansModal(Bean,1)"
+    <div *ngFor="let Bean of beanHarvesters | slice:(i*4):(i+1)*4" (click)="displayModal = true; showModal(Bean)"
          class="w3-col l3 m6 w3-padding" style="cursor:pointer">
       <img src="./img/bean/{{ Bean.img }}_1.jpg" alt="{{ Bean.name }}" style="width:100%">
       <h3>{{ Bean.name }}</h3>
@@ -16,7 +15,6 @@
       <p class="w3-small">{{ Bean.desc }}</p>
     </div>
   </div>
-
   <div class="w3-container w3-padding-32">
     <h3 class="w3-border-bottom w3-border-light-grey w3-padding-12">Гарантия и обслуживание</h3>
     <p>Предоставляется гарантия на один сезон работы комбайна, а также послегарантийное
@@ -28,23 +26,5 @@
       или <a routerLink="/переработка_ягод_фруктов_овощей" title="линии переработки">оборудование по переработке овощей, фруктов</a>
     </p>
   </div>
-
-  <div *ngIf="showModal" class="w3-modal w3-show">
-      <span (click)="showModal = false"
-            class="w3-padding w3-yellow w3-hover-red w3-display-topright" style="cursor:pointer">&times;</span>
-    <div class="w3-modal-content w3-animate-zoom" style="overflow:hidden">
-      <div class="w3-left w3-white" style="width:40%" id="beanImg">
-        <img src="{{ beanSrc }}" style="width:100%;max-height:400px">
-        <div [innerHtml]="beanImages"></div>
-      </div>
-      <div class="w3-right w3-small w3-white" style="width:60%;min-height:400px;">
-        <div class="w3-padding" [innerHtml]="beanText"></div>
-        <div class="w3-padding">
-          Предоставляется гарантия на один сезон работы комбайна, а также послегарантийное сервисное обслуживание,
-          поставка запасных частей и бесплатное обучение комбайнеров на протяжении 20 часов.
-          Период поставки техники 90 дней. Возможна оплата частями. Цену уточняйте.
-        </div>
-      </div>
-    </div>
-  </div>
+  <app-modal></app-modal>
 </div>

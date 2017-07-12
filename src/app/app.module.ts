@@ -8,6 +8,7 @@ import { AppComponent } from './app.component';
 import { LinesComponent } from './lines/lines.component';
 import { BeanComponent } from './bean/bean.component';
 import { KokanComponent } from './kokan/kokan.component';
+import { ModalComponent } from './shared/modal.component';
 
 const appRoutes: Routes = [
   { path: '', component: KokanComponent, data: { title: 'Heroes List' } },
@@ -46,7 +47,15 @@ const appRoutes: Routes = [
 
 @NgModule({
   imports: [ RouterModule.forRoot(appRoutes), BrowserModule ],
-  declarations: [ PageNotFoundComponent, ContactComponent, AppComponent, KokanComponent, LinesComponent, BeanComponent ],
+  declarations: [
+    PageNotFoundComponent,
+    ContactComponent,
+    AppComponent,
+    KokanComponent,
+    LinesComponent,
+    BeanComponent,
+    ModalComponent
+  ],
   providers: [ Title ],
   bootstrap: [ AppComponent ]
 })
