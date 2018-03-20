@@ -3,7 +3,7 @@ import { Component } from '@angular/core';
 const kokan = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16];
 
 @Component({
-  selector: 'app-root',
+  selector: 'app-kokan',
   templateUrl: 'kokan.component.html'
 })
 
@@ -12,7 +12,7 @@ export class KokanComponent {
   kokan = kokan;
   kokanRows = Array.from(Array(Math.ceil(kokan.length / 2)).keys());
   kokanModal (img: string) {
-    (<HTMLImageElement>document.querySelector('#kokanImg')).src = 'img/kokan/' + img + '.jpg';
+    (<HTMLImageElement>document.querySelector('#kokanImg')).src = 'assets/kokan/' + img + '.jpg';
     document.getElementById('modalKokan').style.display = 'block';
   }
   plusDivs (n: number) {

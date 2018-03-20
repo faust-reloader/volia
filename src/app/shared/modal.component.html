@@ -1,7 +1,7 @@
-<div *ngIf="displayModal" class="w3-modal w3-show">
-      <span (click)="displayModal = false"
-            class="w3-padding w3-yellow w3-hover-red w3-display-topright" style="cursor:pointer">&times;</span>
-  <div class="w3-modal-content w3-animate-zoom" style="overflow:hidden">
+<div class="w3-modal w3-show">
+      <span (click)="closeMe()"
+            class="w3-padding w3-yellow w3-hover-red w3-display-topright pointer">&times;</span>
+  <div class="w3-modal-content w3-animate-zoom overflow-hidden">
     <div class="w3-left w3-white" style="width:40%">
       <img src="{{ modalSrc }}" style="width:100%;max-height:400px">
       <div [innerHtml]="modalImages"></div>

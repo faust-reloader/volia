@@ -15,7 +15,7 @@ const lines = [
       Поддерживаемые стандарты: SRPS, DIN, ISO
       Опора устройства: на четырех колесах; без привязки к фундаменту
       Габариты устройства: 3520x1250x3170 мм
-      Высота приема: 965 мм
+      Высота приема: 965 мм 
       Высота подачи: 2146 мм
       Уровень автоматизации: автоматический
       Опорная конструкция: Жесть, сварные профили.
@@ -510,11 +510,11 @@ export class LinesComponent {
   linesRows = Array.from(Array(Math.ceil(lines.length / 4)).keys());
   linesModal (line: any) {
     document.getElementById('modalLine').style.display = 'block';
-    document.getElementById('lineImg').innerHTML = '<img id=img1 src="img/lines/' + line.img + '_1.jpg"' +
+    document.getElementById('lineImg').innerHTML = '<img id=img1 src="assets/lines/' + line.img + '_1.jpg"' +
       ' style="width:100%;max-height:400px">';
     if (line.imgNum > 1) {
       for (let i = 1; i <= line.imgNum; i++) {
-        document.getElementById('lineImg').innerHTML += '<img src="img/lines/' + line.img + '_' + i + '.jpg"' +
+        document.getElementById('lineImg').innerHTML += '<img src="assets/lines/' + line.img + '_' + i + '.jpg"' +
           ' style="width:33.333%;cursor:pointer" onclick="document.getElementById(\'img1\').src=this.src">';
       }
     }
